@@ -1,0 +1,1347 @@
+{
+  "generatedAt": "2026-09-07T14:32:48.724Z",
+  "note": "Demo content only — see scripts/seed/SPEC.md. No database schema exists yet; nothing here is a table definition, and this script does not persist anything (TODO(schema), see scripts/seed/README.md).",
+  "landlord": {
+    "name": "Rohan Kulkarni",
+    "receiptName": "Kulkarni Properties",
+    "upiId": "rohankulkarni@okhdfcbank",
+    "accountantEmail": "ca.deshpande.associates@example.com",
+    "reminderLadderDays": [
+      3,
+      10,
+      20
+    ],
+    "rentEscalationDefaultPercent": 8
+  },
+  "properties": [
+    {
+      "id": "prop-kulkarni-apts",
+      "name": "Kulkarni Apartments",
+      "address": "Survey No. 24, Karve Road, Kothrud, Pune 411038"
+    },
+    {
+      "id": "prop-om-sai",
+      "name": "Om Sai Residency",
+      "address": "Baner–Pashan Link Road, Baner, Pune 411045"
+    }
+  ],
+  "units": [
+    {
+      "id": "unit-1a",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "1A",
+      "type": "1BHK",
+      "monthlyRent": 16000,
+      "deposit": 32000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-1b",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "1B",
+      "type": "1BHK",
+      "monthlyRent": 16000,
+      "deposit": 32000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-2a",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "2A",
+      "type": "2BHK",
+      "monthlyRent": 18000,
+      "deposit": 36000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-2b",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "2B",
+      "type": "2BHK",
+      "monthlyRent": 18500,
+      "deposit": 37000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-3a",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "3A",
+      "type": "1BHK",
+      "monthlyRent": 15500,
+      "deposit": 31000,
+      "status": "vacant"
+    },
+    {
+      "id": "unit-3b",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "3B",
+      "type": "2BHK",
+      "monthlyRent": 16000,
+      "deposit": 32000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-4a",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "4A",
+      "type": "2BHK",
+      "monthlyRent": 20000,
+      "deposit": 40000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-4c",
+      "propertyId": "prop-kulkarni-apts",
+      "unitNumber": "4C",
+      "type": "1BHK",
+      "monthlyRent": 18000,
+      "deposit": 36000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-g1",
+      "propertyId": "prop-om-sai",
+      "unitNumber": "G1",
+      "type": "1RK",
+      "monthlyRent": 11000,
+      "deposit": 22000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-g2",
+      "propertyId": "prop-om-sai",
+      "unitNumber": "G2",
+      "type": "1RK",
+      "monthlyRent": 11500,
+      "deposit": 23000,
+      "status": "vacant"
+    },
+    {
+      "id": "unit-1c",
+      "propertyId": "prop-om-sai",
+      "unitNumber": "1C",
+      "type": "1BHK",
+      "monthlyRent": 14000,
+      "deposit": 28000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-1d",
+      "propertyId": "prop-om-sai",
+      "unitNumber": "1D",
+      "type": "1BHK",
+      "monthlyRent": 14500,
+      "deposit": 29000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-2c",
+      "propertyId": "prop-om-sai",
+      "unitNumber": "2C",
+      "type": "2BHK",
+      "monthlyRent": 21000,
+      "deposit": 42000,
+      "status": "occupied"
+    },
+    {
+      "id": "unit-2d",
+      "propertyId": "prop-om-sai",
+      "unitNumber": "2D",
+      "type": "2BHK",
+      "monthlyRent": 21500,
+      "deposit": 43000,
+      "status": "occupied"
+    }
+  ],
+  "tenants": {
+    "current": [
+      {
+        "id": "tenant-rohit-sharma",
+        "unitId": "unit-1a",
+        "name": "Rohit Sharma",
+        "phone": "+91 98220 11001",
+        "email": "rohit.sharma@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-ananya-iyer",
+        "unitId": "unit-1b",
+        "name": "Ananya Iyer",
+        "phone": "+91 98220 11002",
+        "email": "ananya.iyer@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-meera-desai",
+        "unitId": "unit-2a",
+        "name": "Meera Desai",
+        "phone": "+91 98220 11003",
+        "email": "meera.desai@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-prakash-joshi",
+        "unitId": "unit-2b",
+        "name": "Prakash Joshi",
+        "phone": "+91 98220 11004",
+        "email": "prakash.joshi@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-neha-kulkarni",
+        "unitId": "unit-3b",
+        "name": "Neha Kulkarni",
+        "phone": "+91 98220 11006",
+        "email": "neha.kulkarni@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-ganesh-pawar",
+        "unitId": "unit-4a",
+        "name": "Ganesh Pawar",
+        "phone": "+91 98220 11007",
+        "email": "ganesh.pawar@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-suresh-khan",
+        "unitId": "unit-4c",
+        "name": "Suresh Khan",
+        "phone": "+91 98220 11008",
+        "email": "suresh.khan@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-farhan-shaikh",
+        "unitId": "unit-g1",
+        "name": "Farhan Shaikh",
+        "phone": "+91 90211 22001",
+        "email": "farhan.shaikh@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-priya-nair",
+        "unitId": "unit-1c",
+        "name": "Priya Nair",
+        "phone": "+91 90211 22003",
+        "email": "priya.nair@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-vikram-rao",
+        "unitId": "unit-1d",
+        "name": "Vikram Rao",
+        "phone": "+91 90211 22004",
+        "email": "vikram.rao@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-sneha-bhat",
+        "unitId": "unit-2c",
+        "name": "Sneha Bhat",
+        "phone": "+91 90211 22005",
+        "email": "sneha.bhat@example.com",
+        "status": "current"
+      },
+      {
+        "id": "tenant-abhijit-kulkarni",
+        "unitId": "unit-2d",
+        "name": "Abhijit Kulkarni",
+        "phone": "+91 90211 22006",
+        "email": "abhijit.kulkarni@example.com",
+        "status": "current"
+      }
+    ],
+    "past": [
+      {
+        "id": "tenant-aarti-bhosale",
+        "unitId": "unit-3a",
+        "name": "Aarti Bhosale",
+        "phone": "+91 98220 11099",
+        "status": "past"
+      },
+      {
+        "id": "tenant-imran-sheikh",
+        "unitId": "unit-g2",
+        "name": "Imran Sheikh",
+        "phone": "+91 90211 22099",
+        "status": "past"
+      }
+    ]
+  },
+  "agreements": [
+    {
+      "tenantId": "tenant-rohit-sharma",
+      "unitId": "unit-1a",
+      "startDate": "2025-12-06",
+      "endDate": "2026-12-06",
+      "rent": 16000,
+      "deposit": 32000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-ananya-iyer",
+      "unitId": "unit-1b",
+      "startDate": "2026-03-06",
+      "endDate": "2027-03-06",
+      "rent": 16000,
+      "deposit": 32000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-meera-desai",
+      "unitId": "unit-2a",
+      "startDate": "2026-07-04",
+      "endDate": "2027-07-04",
+      "rent": 18000,
+      "deposit": 36000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-prakash-joshi",
+      "unitId": "unit-2b",
+      "startDate": "2026-02-04",
+      "endDate": "2027-02-04",
+      "rent": 18500,
+      "deposit": 37000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-neha-kulkarni",
+      "unitId": "unit-3b",
+      "startDate": "2026-05-05",
+      "endDate": "2027-05-05",
+      "rent": 16000,
+      "deposit": 32000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-ganesh-pawar",
+      "unitId": "unit-4a",
+      "startDate": "2026-01-05",
+      "endDate": "2027-01-05",
+      "rent": 20000,
+      "deposit": 40000,
+      "escalationPercent": 8,
+      "noticeGiven": true,
+      "noticeGivenDate": "2026-08-18",
+      "moveOutDate": "2026-09-17"
+    },
+    {
+      "tenantId": "tenant-suresh-khan",
+      "unitId": "unit-4c",
+      "startDate": "2025-11-11",
+      "endDate": "2026-11-11",
+      "rent": 18000,
+      "deposit": 36000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-farhan-shaikh",
+      "unitId": "unit-g1",
+      "startDate": "2026-03-26",
+      "endDate": "2027-03-26",
+      "rent": 11000,
+      "deposit": 22000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-priya-nair",
+      "unitId": "unit-1c",
+      "startDate": "2025-09-25",
+      "endDate": "2026-09-25",
+      "rent": 14000,
+      "deposit": 28000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-vikram-rao",
+      "unitId": "unit-1d",
+      "startDate": "2025-10-22",
+      "endDate": "2026-10-22",
+      "rent": 14500,
+      "deposit": 29000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-sneha-bhat",
+      "unitId": "unit-2c",
+      "startDate": "2025-08-24",
+      "endDate": "2026-08-24",
+      "rent": 21000,
+      "deposit": 42000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-abhijit-kulkarni",
+      "unitId": "unit-2d",
+      "startDate": "2025-11-21",
+      "endDate": "2026-11-21",
+      "rent": 21500,
+      "deposit": 43000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-aarti-bhosale",
+      "unitId": "unit-3a",
+      "startDate": "2025-07-14",
+      "endDate": "2026-07-14",
+      "rent": 15500,
+      "deposit": 31000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    },
+    {
+      "tenantId": "tenant-imran-sheikh",
+      "unitId": "unit-g2",
+      "startDate": "2025-05-15",
+      "endDate": "2026-05-15",
+      "rent": 11500,
+      "deposit": 23000,
+      "escalationPercent": 8,
+      "noticeGiven": false
+    }
+  ],
+  "rentEntries": [
+    {
+      "unitId": "unit-1a",
+      "tenantId": "tenant-rohit-sharma",
+      "month": "2026-08",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-08-29",
+      "datePaid": "2026-08-29",
+      "status": "Paid",
+      "receiptNumber": "RR-7072"
+    },
+    {
+      "unitId": "unit-1a",
+      "tenantId": "tenant-rohit-sharma",
+      "month": "2026-07",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-07-30",
+      "datePaid": "2026-07-30",
+      "status": "Paid",
+      "receiptNumber": "RR-7071"
+    },
+    {
+      "unitId": "unit-1a",
+      "tenantId": "tenant-rohit-sharma",
+      "month": "2026-06",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-06-30",
+      "datePaid": "2026-06-30",
+      "status": "Paid",
+      "receiptNumber": "RR-7070"
+    },
+    {
+      "unitId": "unit-1b",
+      "tenantId": "tenant-ananya-iyer",
+      "month": "2026-08",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-08-30",
+      "datePaid": "2026-08-30",
+      "status": "Paid",
+      "receiptNumber": "RR-4513"
+    },
+    {
+      "unitId": "unit-1b",
+      "tenantId": "tenant-ananya-iyer",
+      "month": "2026-07",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-07-31",
+      "datePaid": "2026-07-31",
+      "status": "Paid",
+      "receiptNumber": "RR-4512"
+    },
+    {
+      "unitId": "unit-1b",
+      "tenantId": "tenant-ananya-iyer",
+      "month": "2026-07",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-07-01",
+      "datePaid": "2026-07-01",
+      "status": "Paid",
+      "receiptNumber": "RR-4512"
+    },
+    {
+      "unitId": "unit-2a",
+      "tenantId": "tenant-meera-desai",
+      "month": "2026-09",
+      "rentDue": 18000,
+      "amountPaid": 0,
+      "dueDate": "2026-09-02",
+      "datePaid": null,
+      "status": "5d late",
+      "daysLate": 5,
+      "escalation": {
+        "level": 2,
+        "of": 3
+      },
+      "reminderHistory": [
+        {
+          "level": "gentle",
+          "method": "whatsapp",
+          "sentDate": "2026-09-05"
+        }
+      ],
+      "receiptNumber": null
+    },
+    {
+      "unitId": "unit-2a",
+      "tenantId": "tenant-meera-desai",
+      "month": "2026-08",
+      "rentDue": 18000,
+      "amountPaid": 18000,
+      "dueDate": "2026-08-03",
+      "datePaid": "2026-08-03",
+      "status": "Paid",
+      "receiptNumber": "RR-7743"
+    },
+    {
+      "unitId": "unit-2a",
+      "tenantId": "tenant-meera-desai",
+      "month": "2026-07",
+      "rentDue": 18000,
+      "amountPaid": 18000,
+      "dueDate": "2026-07-04",
+      "datePaid": "2026-07-04",
+      "status": "Paid",
+      "receiptNumber": "RR-7742"
+    },
+    {
+      "unitId": "unit-2b",
+      "tenantId": "tenant-prakash-joshi",
+      "month": "2026-08",
+      "rentDue": 18500,
+      "amountPaid": 18500,
+      "dueDate": "2026-08-29",
+      "datePaid": "2026-08-29",
+      "status": "Paid",
+      "receiptNumber": "RR-5184"
+    },
+    {
+      "unitId": "unit-2b",
+      "tenantId": "tenant-prakash-joshi",
+      "month": "2026-07",
+      "rentDue": 18500,
+      "amountPaid": 18500,
+      "dueDate": "2026-07-30",
+      "datePaid": "2026-07-30",
+      "status": "Paid",
+      "receiptNumber": "RR-5183"
+    },
+    {
+      "unitId": "unit-2b",
+      "tenantId": "tenant-prakash-joshi",
+      "month": "2026-06",
+      "rentDue": 18500,
+      "amountPaid": 18500,
+      "dueDate": "2026-06-30",
+      "datePaid": "2026-06-30",
+      "status": "Paid",
+      "receiptNumber": "RR-5182"
+    },
+    {
+      "unitId": "unit-3b",
+      "tenantId": "tenant-neha-kulkarni",
+      "month": "2026-09",
+      "rentDue": 16000,
+      "amountPaid": 12000,
+      "dueDate": "2026-09-01",
+      "datePaid": "2026-09-05",
+      "status": "Part paid — ₹4,000 pending",
+      "receiptNumber": "RR-5856"
+    },
+    {
+      "unitId": "unit-3b",
+      "tenantId": "tenant-neha-kulkarni",
+      "month": "2026-08",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-08-02",
+      "datePaid": "2026-08-02",
+      "status": "Paid",
+      "receiptNumber": "RR-5855"
+    },
+    {
+      "unitId": "unit-3b",
+      "tenantId": "tenant-neha-kulkarni",
+      "month": "2026-07",
+      "rentDue": 16000,
+      "amountPaid": 16000,
+      "dueDate": "2026-07-03",
+      "datePaid": "2026-07-03",
+      "status": "Paid",
+      "receiptNumber": "RR-5854"
+    },
+    {
+      "unitId": "unit-4a",
+      "tenantId": "tenant-ganesh-pawar",
+      "month": "2026-08",
+      "rentDue": 20000,
+      "amountPaid": 20000,
+      "dueDate": "2026-08-28",
+      "datePaid": "2026-08-28",
+      "status": "Paid",
+      "receiptNumber": "RR-9085"
+    },
+    {
+      "unitId": "unit-4a",
+      "tenantId": "tenant-ganesh-pawar",
+      "month": "2026-07",
+      "rentDue": 20000,
+      "amountPaid": 20000,
+      "dueDate": "2026-07-29",
+      "datePaid": "2026-07-29",
+      "status": "Paid",
+      "receiptNumber": "RR-9084"
+    },
+    {
+      "unitId": "unit-4a",
+      "tenantId": "tenant-ganesh-pawar",
+      "month": "2026-06",
+      "rentDue": 20000,
+      "amountPaid": 20000,
+      "dueDate": "2026-06-29",
+      "datePaid": "2026-06-29",
+      "status": "Paid",
+      "receiptNumber": "RR-9083"
+    },
+    {
+      "unitId": "unit-4c",
+      "tenantId": "tenant-suresh-khan",
+      "month": "2026-08",
+      "rentDue": 18000,
+      "amountPaid": 0,
+      "dueDate": "2026-08-20",
+      "datePaid": null,
+      "status": "18d late",
+      "daysLate": 18,
+      "escalation": {
+        "level": 3,
+        "of": 3
+      },
+      "reminderHistory": [
+        {
+          "level": "gentle",
+          "method": "whatsapp",
+          "sentDate": "2026-08-23"
+        },
+        {
+          "level": "direct",
+          "method": "whatsapp",
+          "sentDate": "2026-08-30"
+        }
+      ],
+      "receiptNumber": null
+    },
+    {
+      "unitId": "unit-4c",
+      "tenantId": "tenant-suresh-khan",
+      "month": "2026-07",
+      "rentDue": 18000,
+      "amountPaid": 18000,
+      "dueDate": "2026-07-21",
+      "datePaid": "2026-07-21",
+      "status": "Paid",
+      "receiptNumber": "RR-3966"
+    },
+    {
+      "unitId": "unit-4c",
+      "tenantId": "tenant-suresh-khan",
+      "month": "2026-06",
+      "rentDue": 18000,
+      "amountPaid": 18000,
+      "dueDate": "2026-06-21",
+      "datePaid": "2026-06-21",
+      "status": "Paid",
+      "receiptNumber": "RR-3965"
+    },
+    {
+      "unitId": "unit-g1",
+      "tenantId": "tenant-farhan-shaikh",
+      "month": "2026-08",
+      "rentDue": 11000,
+      "amountPaid": 11000,
+      "dueDate": "2026-08-31",
+      "datePaid": "2026-08-31",
+      "status": "Paid",
+      "receiptNumber": "RR-6138"
+    },
+    {
+      "unitId": "unit-g1",
+      "tenantId": "tenant-farhan-shaikh",
+      "month": "2026-08",
+      "rentDue": 11000,
+      "amountPaid": 11000,
+      "dueDate": "2026-08-01",
+      "datePaid": "2026-08-01",
+      "status": "Paid",
+      "receiptNumber": "RR-6138"
+    },
+    {
+      "unitId": "unit-g1",
+      "tenantId": "tenant-farhan-shaikh",
+      "month": "2026-07",
+      "rentDue": 11000,
+      "amountPaid": 11000,
+      "dueDate": "2026-07-02",
+      "datePaid": "2026-07-02",
+      "status": "Paid",
+      "receiptNumber": "RR-6137"
+    },
+    {
+      "unitId": "unit-1c",
+      "tenantId": "tenant-priya-nair",
+      "month": "2026-09",
+      "rentDue": 14000,
+      "amountPaid": 14000,
+      "dueDate": "2026-09-01",
+      "datePaid": "2026-09-01",
+      "status": "Paid",
+      "receiptNumber": "RR-1955"
+    },
+    {
+      "unitId": "unit-1c",
+      "tenantId": "tenant-priya-nair",
+      "month": "2026-08",
+      "rentDue": 14000,
+      "amountPaid": 14000,
+      "dueDate": "2026-08-02",
+      "datePaid": "2026-08-02",
+      "status": "Paid",
+      "receiptNumber": "RR-1954"
+    },
+    {
+      "unitId": "unit-1c",
+      "tenantId": "tenant-priya-nair",
+      "month": "2026-07",
+      "rentDue": 14000,
+      "amountPaid": 14000,
+      "dueDate": "2026-07-03",
+      "datePaid": "2026-07-03",
+      "status": "Paid",
+      "receiptNumber": "RR-1953"
+    },
+    {
+      "unitId": "unit-1d",
+      "tenantId": "tenant-vikram-rao",
+      "month": "2026-08",
+      "rentDue": 14500,
+      "amountPaid": 14500,
+      "dueDate": "2026-08-30",
+      "datePaid": "2026-08-30",
+      "status": "Paid",
+      "receiptNumber": "RR-9395"
+    },
+    {
+      "unitId": "unit-1d",
+      "tenantId": "tenant-vikram-rao",
+      "month": "2026-07",
+      "rentDue": 14500,
+      "amountPaid": 14500,
+      "dueDate": "2026-07-31",
+      "datePaid": "2026-07-31",
+      "status": "Paid",
+      "receiptNumber": "RR-9394"
+    },
+    {
+      "unitId": "unit-1d",
+      "tenantId": "tenant-vikram-rao",
+      "month": "2026-07",
+      "rentDue": 14500,
+      "amountPaid": 14500,
+      "dueDate": "2026-07-01",
+      "datePaid": "2026-07-01",
+      "status": "Paid",
+      "receiptNumber": "RR-9394"
+    },
+    {
+      "unitId": "unit-2c",
+      "tenantId": "tenant-sneha-bhat",
+      "month": "2026-08",
+      "rentDue": 21000,
+      "amountPaid": 21000,
+      "dueDate": "2026-08-29",
+      "datePaid": "2026-08-29",
+      "status": "Paid",
+      "receiptNumber": "RR-2625"
+    },
+    {
+      "unitId": "unit-2c",
+      "tenantId": "tenant-sneha-bhat",
+      "month": "2026-07",
+      "rentDue": 21000,
+      "amountPaid": 21000,
+      "dueDate": "2026-07-30",
+      "datePaid": "2026-07-30",
+      "status": "Paid",
+      "receiptNumber": "RR-2624"
+    },
+    {
+      "unitId": "unit-2c",
+      "tenantId": "tenant-sneha-bhat",
+      "month": "2026-06",
+      "rentDue": 21000,
+      "amountPaid": 21000,
+      "dueDate": "2026-06-30",
+      "datePaid": "2026-06-30",
+      "status": "Paid",
+      "receiptNumber": "RR-2623"
+    },
+    {
+      "unitId": "unit-2d",
+      "tenantId": "tenant-abhijit-kulkarni",
+      "month": "2026-08",
+      "rentDue": 21500,
+      "amountPaid": 21500,
+      "dueDate": "2026-08-31",
+      "datePaid": "2026-08-31",
+      "status": "Paid",
+      "receiptNumber": "RR-1006"
+    },
+    {
+      "unitId": "unit-2d",
+      "tenantId": "tenant-abhijit-kulkarni",
+      "month": "2026-08",
+      "rentDue": 21500,
+      "amountPaid": 21500,
+      "dueDate": "2026-08-01",
+      "datePaid": "2026-08-01",
+      "status": "Paid",
+      "receiptNumber": "RR-1006"
+    },
+    {
+      "unitId": "unit-2d",
+      "tenantId": "tenant-abhijit-kulkarni",
+      "month": "2026-07",
+      "rentDue": 21500,
+      "amountPaid": 21500,
+      "dueDate": "2026-07-02",
+      "datePaid": "2026-07-02",
+      "status": "Paid",
+      "receiptNumber": "RR-1006"
+    }
+  ],
+  "maintenanceRequests": [
+    {
+      "id": "mr-1",
+      "unitId": "unit-1b",
+      "category": "Plumbing",
+      "urgency": "Normal",
+      "description": "Kitchen tap is leaking continuously",
+      "status": "New",
+      "reportedDaysAgo": 0,
+      "photos": 1,
+      "reportedDate": "2026-09-07",
+      "closedDate": null,
+      "ageDays": 0,
+      "agingTier": null
+    },
+    {
+      "id": "mr-2",
+      "unitId": "unit-2b",
+      "category": "Electrical",
+      "urgency": "Urgent",
+      "description": "Living room switchboard sparks when the fan is switched on",
+      "status": "New",
+      "reportedDaysAgo": 0,
+      "photos": 1,
+      "reportedDate": "2026-09-07",
+      "closedDate": null,
+      "ageDays": 0,
+      "agingTier": null
+    },
+    {
+      "id": "mr-3",
+      "unitId": "unit-4c",
+      "category": "Plumbing",
+      "urgency": "Urgent",
+      "description": "Geyser is leaking from the bottom since yesterday",
+      "status": "Assigned",
+      "reportedDaysAgo": 3,
+      "vendor": {
+        "name": "Om Plumbing Services",
+        "phone": "+91 98221 30001"
+      },
+      "photos": 1,
+      "reportedDate": "2026-09-04",
+      "closedDate": null,
+      "ageDays": 3,
+      "agingTier": null
+    },
+    {
+      "id": "mr-4",
+      "unitId": "unit-2a",
+      "category": "Structural",
+      "urgency": "Low",
+      "description": "Bedroom window latch is broken and will not lock",
+      "status": "New",
+      "reportedDaysAgo": 9,
+      "photos": 1,
+      "reportedDate": "2026-08-29",
+      "closedDate": null,
+      "ageDays": 9,
+      "agingTier": "danger"
+    },
+    {
+      "id": "mr-5",
+      "unitId": "unit-1d",
+      "category": "Pest",
+      "urgency": "Normal",
+      "description": "Ants near the kitchen sink",
+      "status": "New",
+      "reportedDaysAgo": 5,
+      "photos": 0,
+      "reportedDate": "2026-09-02",
+      "closedDate": null,
+      "ageDays": 5,
+      "agingTier": "warning"
+    },
+    {
+      "id": "mr-6",
+      "unitId": "unit-2c",
+      "category": "Electrical",
+      "urgency": "Normal",
+      "description": "Corridor light outside the flat is not working",
+      "status": "In progress",
+      "reportedDaysAgo": 6,
+      "vendor": {
+        "name": "Deshmukh Electricals",
+        "phone": "+91 90211 40002"
+      },
+      "photos": 1,
+      "reportedDate": "2026-09-01",
+      "closedDate": null,
+      "ageDays": 6,
+      "agingTier": null
+    },
+    {
+      "id": "mr-7",
+      "unitId": "unit-2d",
+      "category": "Plumbing",
+      "urgency": "Normal",
+      "description": "Bathroom drain is slow",
+      "status": "Done",
+      "reportedDaysAgo": 15,
+      "closedDaysAgo": 10,
+      "vendor": {
+        "name": "Om Plumbing Services",
+        "phone": "+91 98221 30001"
+      },
+      "cost": 600,
+      "photos": 2,
+      "reportedDate": "2026-08-23",
+      "closedDate": "2026-08-28",
+      "ageDays": null,
+      "agingTier": null
+    },
+    {
+      "id": "mr-8",
+      "unitId": "unit-g1",
+      "category": "Appliance",
+      "urgency": "Low",
+      "description": "Water purifier filter needs replacement",
+      "status": "Done",
+      "reportedDaysAgo": 20,
+      "closedDaysAgo": 18,
+      "cost": 0,
+      "noCost": true,
+      "photos": 1,
+      "reportedDate": "2026-08-18",
+      "closedDate": "2026-08-20",
+      "ageDays": null,
+      "agingTier": null
+    },
+    {
+      "id": "mr-9",
+      "unitId": "unit-4c",
+      "category": "Plumbing",
+      "urgency": "Normal",
+      "description": "Kitchen mixer tap replaced",
+      "status": "Done",
+      "reportedDaysAgo": 70,
+      "closedDaysAgo": 68,
+      "vendor": {
+        "name": "Om Plumbing Services",
+        "phone": "+91 98221 30001"
+      },
+      "cost": 350,
+      "photos": 1,
+      "reportedDate": "2026-06-29",
+      "closedDate": "2026-07-01",
+      "ageDays": null,
+      "agingTier": null
+    },
+    {
+      "id": "mr-10",
+      "unitId": "unit-4c",
+      "category": "Plumbing",
+      "urgency": "Normal",
+      "description": "Bathroom flush tank repaired",
+      "status": "Done",
+      "reportedDaysAgo": 150,
+      "closedDaysAgo": 147,
+      "vendor": {
+        "name": "Om Plumbing Services",
+        "phone": "+91 98221 30001"
+      },
+      "cost": 450,
+      "photos": 1,
+      "reportedDate": "2026-04-10",
+      "closedDate": "2026-04-13",
+      "ageDays": null,
+      "agingTier": null
+    },
+    {
+      "id": "mr-11",
+      "unitId": "unit-4c",
+      "category": "Plumbing",
+      "urgency": "Normal",
+      "description": "Geyser pressure valve serviced",
+      "status": "Done",
+      "reportedDaysAgo": 260,
+      "closedDaysAgo": 257,
+      "vendor": {
+        "name": "Om Plumbing Services",
+        "phone": "+91 98221 30001"
+      },
+      "cost": 300,
+      "photos": 0,
+      "reportedDate": "2025-12-21",
+      "closedDate": "2025-12-24",
+      "ageDays": null,
+      "agingTier": null
+    },
+    {
+      "id": "mr-12",
+      "unitId": "unit-4a",
+      "category": "Structural",
+      "urgency": "Normal",
+      "description": "Cracked tile in bathroom, noted at move-out inspection",
+      "status": "Done",
+      "reportedDaysAgo": 20,
+      "closedDaysAgo": 19,
+      "cost": 1200,
+      "tenantLiable": true,
+      "photos": 1,
+      "reportedDate": "2026-08-18",
+      "closedDate": "2026-08-19",
+      "ageDays": null,
+      "agingTier": null
+    }
+  ],
+  "depositSettlements": [
+    {
+      "id": "settlement-ganesh-pawar",
+      "tenantId": "tenant-ganesh-pawar",
+      "unitId": "unit-4a",
+      "depositHeld": 40000,
+      "deductions": [
+        {
+          "description": "Cracked bathroom tile repair",
+          "reason": "Damage beyond normal wear and tear, noted at move-out inspection",
+          "amount": 1200,
+          "photo": true,
+          "pulledFromRequestId": "mr-12"
+        },
+        {
+          "description": "Deep cleaning before next tenant",
+          "reason": "Kitchen and bathroom left uncleaned at inspection",
+          "amount": 800,
+          "photo": false
+        }
+      ],
+      "totalDeductions": 2000,
+      "balanceRefundable": 38000,
+      "status": "draft",
+      "settledDate": null
+    },
+    {
+      "id": "settlement-aarti-bhosale",
+      "tenantId": "tenant-aarti-bhosale",
+      "unitId": "unit-3a",
+      "depositHeld": 31000,
+      "deductions": [],
+      "totalDeductions": 0,
+      "balanceRefundable": 31000,
+      "status": "settled",
+      "settledDate": "2026-07-14"
+    },
+    {
+      "id": "settlement-imran-sheikh",
+      "tenantId": "tenant-imran-sheikh",
+      "unitId": "unit-g2",
+      "depositHeld": 23000,
+      "deductions": [
+        {
+          "description": "Wall repainting after long tenancy",
+          "reason": "Walls required repainting beyond normal wear after a multi-year tenancy",
+          "amount": 2500,
+          "photo": true
+        }
+      ],
+      "totalDeductions": 2500,
+      "balanceRefundable": 20500,
+      "status": "settled",
+      "settledDate": "2026-05-15"
+    }
+  ],
+  "documents": [
+    {
+      "tenantId": "tenant-rohit-sharma",
+      "unitId": "unit-1a",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-12-06"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Rohit Sharma — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Rohit Sharma — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-ananya-iyer",
+      "unitId": "unit-1b",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2026-03-06"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Ananya Iyer — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Ananya Iyer — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-meera-desai",
+      "unitId": "unit-2a",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2026-07-04"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Meera Desai — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Meera Desai — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-prakash-joshi",
+      "unitId": "unit-2b",
+      "moveInPhotos": {
+        "present": false,
+        "count": 0,
+        "takenDate": null
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Prakash Joshi — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Prakash Joshi — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-neha-kulkarni",
+      "unitId": "unit-3b",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2026-05-05"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Neha Kulkarni — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Neha Kulkarni — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-ganesh-pawar",
+      "unitId": "unit-4a",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2026-01-05"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Ganesh Pawar — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Ganesh Pawar — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-suresh-khan",
+      "unitId": "unit-4c",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-11-11"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Suresh Khan — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Suresh Khan — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-farhan-shaikh",
+      "unitId": "unit-g1",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2026-03-26"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Farhan Shaikh — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Farhan Shaikh — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-priya-nair",
+      "unitId": "unit-1c",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-09-25"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Priya Nair — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Priya Nair — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-vikram-rao",
+      "unitId": "unit-1d",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-10-22"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Vikram Rao — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Vikram Rao — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-sneha-bhat",
+      "unitId": "unit-2c",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-08-24"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Sneha Bhat — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Sneha Bhat — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-abhijit-kulkarni",
+      "unitId": "unit-2d",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-11-21"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Abhijit Kulkarni — signed agreement.pdf"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Abhijit Kulkarni — ID proof.pdf"
+      }
+    },
+    {
+      "tenantId": "tenant-aarti-bhosale",
+      "unitId": "unit-3a",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-07-14"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Aarti Bhosale — signed agreement.pdf (archived)"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Aarti Bhosale — ID proof.pdf (archived)"
+      }
+    },
+    {
+      "tenantId": "tenant-imran-sheikh",
+      "unitId": "unit-g2",
+      "moveInPhotos": {
+        "present": true,
+        "count": 4,
+        "takenDate": "2025-05-15"
+      },
+      "agreementDocument": {
+        "present": true,
+        "label": "Imran Sheikh — signed agreement.pdf (archived)"
+      },
+      "idProofDocument": {
+        "present": true,
+        "label": "Imran Sheikh — ID proof.pdf (archived)"
+      }
+    }
+  ]
+}
