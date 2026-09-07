@@ -2,11 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * A1 colour tokens (spec/foundations.md). This is the ONLY place a hex
+ * value is allowed to appear — every component consumes these through
+ * the Tailwind colour utilities wired up in tailwind.config.ts
+ * (`bg-primary`, `text-ink`, `border-line`, ...), never a literal hex.
+ * Stored as unitless `r g b` triplets so Tailwind's opacity modifiers
+ * (e.g. `bg-warning/12`) work.
+ */
 :root {
   color-scheme: light;
+
+  --color-ink: 20 32 43; /* #14202B */
+  --color-body: 60 74 87; /* #3C4A57 */
+  --color-muted: 124 139 153; /* #7C8B99 */
+  --color-line: 226 232 237; /* #E2E8ED */
+  --color-canvas: 246 248 250; /* #F6F8FA */
+  --color-surface: 255 255 255; /* #FFFFFF */
+  --color-primary: 27 58 92; /* #1B3A5C */
+  --color-primary-soft: 220 231 240; /* #DCE7F0 */
+  --color-success: 30 122 77; /* #1E7A4D */
+  --color-warning: 180 118 26; /* #B4761A */
+  --color-danger: 179 53 44; /* #B3352C */
+  --color-neutral: 138 155 165; /* #8A9BA5 */
 }
 
 body {
-  background-color: #f6f8fa;
-  color: #14202b;
+  background-color: rgb(var(--color-canvas));
+  color: rgb(var(--color-ink));
+  /* A1 type scale "body" (14px/400) is the default text size — see the
+     fontSize comment in tailwind.config.ts for why it isn't a `text-*`
+     utility. Override with text-display/h1/h2/small/label as needed. */
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/* Tabular figures for money and table columns, per spec/foundations.md A1. */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
