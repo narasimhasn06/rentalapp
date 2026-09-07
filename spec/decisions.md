@@ -25,6 +25,166 @@ blocking conflicts found during the same review.
 
 ---
 
+## Quick reference — the seven mandatory schema corrections
+
+A 200-word-or-fewer capsule of each mandatory correction, in this exact
+shape: what the source said → why it can't be right as written → what we
+chose → what it costs. Full detail, including every consequence, lives in
+the numbered entry linked from each heading — read this section for the
+fast version, the numbered section below for the complete record.
+
+### [D1](#d1--two-separate-tokens-unitdoor_token-and-tenancytenant_token) — two tokens, not one
+
+**Source said:** the spec uses one phrase, "unit link," for two things: a
+durable link printed as a door sticker (works across tenant turnover, on
+a vacant unit) and a per-tenant link that "stops working when the tenancy
+ends" and pre-fills the tenant's name and phone.
+**Why it can't be right:** a single field can't be both permanent-and-
+tenant-agnostic and expiring-with-one-tenancy. Pre-fill by identity also
+requires the token to already encode which tenant is visiting — a
+door-level token can't do that by design.
+**What we chose:** two tokens. `unit.door_token` (created with the unit,
+never rotated, grants T-01/T-02 only, fields blank). `tenancy.tenant_token`
+(created at move-in, invalidated the instant the tenancy ends, pre-filled,
+plus T-03–T-05).
+**What it costs:** two token columns on two tables instead of one; an
+invalidation hook wired to tenancy end; T-01's pre-fill logic becomes
+conditional on which token resolved the request; the route table and
+T-01's own spec need a later edit to reflect two token families instead
+of one `:unitToken` param.
+
+### [D3](#d3--agreement-is-its-own-entity-a-tenancy-can-have-more-than-one-over-time) — agreement is its own entity
+
+**Source said:** L-12's renewal button reads as an in-place edit — "new
+start date, new end date, new rent... the agreement dates update" —
+implying one agreement row whose fields change.
+**Why it can't be right:** the same file says rent changes take effect
+only from the new start date and past rent rows "are not altered," and
+the product's "Evidence, always" principle plus its own history-
+everywhere pattern (rent, maintenance, deposits) argues against
+overwriting a term's true past values. Overwriting also makes "what was
+this agreement before the last renewal" unanswerable, something L-13
+settlement work may need.
+**What we chose:** `agreement` is its own entity, foreign-keyed to
+`tenancy`, not to `tenant` or `unit`. A tenancy has one active agreement
+at a time but potentially many over its life; renewing creates a new
+agreement row rather than mutating the old one. L-12's "dates update" is
+read as the visible UI effect, not the storage model.
+**What it costs:** a new table plus a way to flag which agreement is
+currently active; every past term stays queryable; `rent_entry` already
+snapshots its own `rentDue` independently, so this protects agreement-
+term history only, not billed-amount history.
+
+### [D4](#d4--agreement-owns-rent_due_day) — `agreement` owns `rent_due_day`
+
+**Source said:** `product.md` states rent rows are created "1st of the
+month," flatly. But L-04 also describes a "mid-month move-in" where "the
+first month's row is created with the pro-rata amount" — which only
+makes sense if a tenancy's due day isn't always the 1st.
+**Why it can't be right:** "every rent row is created on the 1st" and "a
+tenancy can be due on a day that isn't the 1st" can't both be system-wide
+rules; one has to be a per-tenancy value, not a constant.
+**What we chose:** `rent_due_day` (integer 1–28, valid in every month)
+lives on `agreement`, defaulting to 1 unless the landlord sets it
+otherwise at move-in. "Created on the 1st" describes the default case and
+the batch job's default schedule, not a hard constraint.
+**What it costs:** rent-row generation must read `rent_due_day` per
+active agreement instead of assuming one system date; because D3 makes
+`agreement` versioned, a due-day change at renewal is just a new
+agreement row's property; the pro-rata formula itself stays undecided
+(see "intentionally left open").
+
+### [D5](#d5--notice-fields-and-state-belong-on-tenancy-not-agreement) — notice fields live on `tenancy`
+
+**Source said:** L-11 visually nests "notice status" inside the
+agreement block on the tenant detail screen, implying notice is a
+property of the agreement.
+**Why it can't be right:** D3 already establishes a tenancy can span
+several agreements over time, and giving notice ends the tenancy, not
+one specific agreement term. If notice fields lived on `agreement`,
+"notice given" would have to be copied forward at every renewal
+(redundant, error-prone) or would silently vanish when a new agreement
+row is created — neither works for something that must persist until
+move-out regardless of agreement churn.
+**What we chose:** `notice_given`, `notice_given_date`, and
+`move_out_date` live on `tenancy`. L-11 can keep displaying them inside
+the agreement-looking visual block — that's layout, not data modelling.
+**What it costs:** ending a tenancy becomes one state transition on one
+entity, independent of which agreement is active; L-12's "stays there...
+until renewed or the tenancy is ended" now reads correctly, since
+agreement expiry and tenancy end are two separately-tracked events; this
+is also where D1's `tenant_token` invalidation hooks in.
+
+### [D7](#d7--payment-is-a-child-of-rent_entry-scoped-to-rent-payments) — `payment` is a child of `rent_entry`
+
+**Source said:** L-04 describes each rent entry as if it holds one flat
+"amount paid" value, but its own part-payment rule says: "the row shows
+'Part paid — ₹4,000 pending'... A receipt is issued for the amount
+actually received."
+**Why it can't be right:** a tenant who part-pays today and tops up next
+week creates two separate receivable events against the same rent entry
+— a single `amountPaid` field can't hold two receipts with their own
+dates, references and receipt numbers.
+**What we chose:** `payment` is its own entity, a child of `rent_entry`
+(one entry, many payments). Each payment carries its own amount, date,
+reference and receipt number. `rent_entry.amountPaid` and its status
+("Paid"/"Part paid"/"Nd late") are derived by summing child payments
+against `rentDue`, not stored independently.
+**What it costs:** "mark paid" now creates a `payment` row rather than
+setting a field on `rent_entry`; receipt printing keys off individual
+payment rows, so a twice-part-paid entry has two receipts; this entity is
+deliberately scoped to rent only — deposit and repair-cost-recovery money
+(D8) are handled elsewhere, on purpose.
+
+### [D9](#d9--audit_event-is-its-own-unified-entity) — `audit_event` is one unified entity
+
+**Source said:** the spec separately describes three "this happened,
+then this happened" histories with near-identical shape but no shared
+name — L-05's reminder timeline, L-07's request timeline, and T-03's
+tenant-safe status timeline — each written as if its own bespoke
+mechanism.
+**Why it can't be right:** building three separately-shaped tables
+duplicates the same who/what/when/on-which-record pattern three times,
+and makes it hard to guarantee T-03's tenant-safe view actually stays in
+sync with L-07's landlord view of the same facts — two independently
+maintained tables can silently drift apart.
+**What we chose:** one `audit_event` entity (entity type, entity id,
+event type, timestamp, actor, payload) underlies every timeline in the
+product. Each screen's timeline is a filtered view over it — the
+tenant's view additionally strips anything protected (D10) or
+landlord-only (vendor, cost, internal notes) before rendering.
+**What it costs:** new timelines in future features are a query shape
+against an existing table, not a new table; T-03's "plain words, no
+jargon" rule becomes a rendering-layer concern rather than a separately-
+maintained data source that could fall out of sync with the
+landlord-facing version.
+
+### [D10](#d10--documentis_protected-with-a-safe-default-and-concrete-category-assignments) — `document.is_protected`, safe by default
+
+**Source said:** cross-cutting rules forbid tenant screens from showing
+repair costs, vendor rates, or other units' data, and L-07 explicitly
+lists what must never reach a tenant. But other documents — move-in
+condition photos, a tenant's own submitted maintenance photos — are
+tenant-relevant by design, per the "Evidence, always" principle.
+**Why it can't be right:** neither a blanket "tenants never see
+documents" rule nor a blanket "documents are fine to expose" default
+fits — one is too broad, the other is actively unsafe the moment a cost
+document or ID proof is fetched by mistake.
+**What we chose:** `document.is_protected`, defaulting to `true` (hidden
+unless explicitly marked otherwise). Only two categories default to
+`false`: a tenant's own move-in condition photos, and their own
+submitted maintenance photos (plus the landlord's "after" photos on that
+same request). Everything else — agreement PDFs, ID proofs, vendor
+invoices, deposit-deduction photos — stays protected always; a tenant
+sees deductions only via the compiled P-02 statement, never raw photo
+access.
+**What it costs:** every tenant-facing document query is one filter
+(`is_protected = false`) plus an ownership check, rather than bespoke
+per-screen logic; any new document category must explicitly justify
+opting out of protection.
+
+---
+
 ## D1 — Two separate tokens: `unit.door_token` and `tenancy.tenant_token`
 
 **Tags:** tokens, security/privacy, navigation, tenant vs landlord
